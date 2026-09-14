@@ -12,7 +12,8 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);
   font-family:var(--serif);
-  font-size:var(--t-base);line-height:var(--lh)}
+  font-size:var(--t-base);line-height:var(--lh);
+  overflow-x:hidden}
 /* Paper grain / film grain: a texture behind the text, never a filter
    over it — legibility is the point of the look being imitated. */
 body::before{content:"";position:fixed;inset:0;pointer-events:none;
@@ -37,8 +38,14 @@ main{grid-column:2;grid-row:4;min-width:0}
   -webkit-print-color-adjust:exact;print-color-adjust:exact}
 .classification.lg{font-size:var(--t-lg);letter-spacing:.04em}
 .classification.sm{font-size:.72rem;letter-spacing:.22em}
-.classification.top{margin:0 0 var(--sp-6)}
-.classification.bot{margin:var(--sp-6) 0 0}
+/* Ruled 2026-09-14: the dossier renders in the web-page register, so
+   its banners run full-bleed like a classified system's ribbon — the
+   ISOO paper inset stays the rule for paper-register documents (the
+   playerbook's treatment is deliberately undecided). calc(50% - 50vw)
+   breaks out of the centered .page box; body overflow-x:hidden
+   absorbs the scrollbar-width overshoot. */
+.classification.top{margin:0 calc(50% - 50vw) var(--sp-6)}
+.classification.bot{margin:var(--sp-6) calc(50% - 50vw) 0}
 header.cover{margin-bottom:var(--sp-4)}
 .eyebrow{font-family:var(--mono);
   font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;
@@ -164,14 +171,11 @@ a.ev:hover .ev-name,a.ev:focus-visible .ev-name{text-decoration:underline}
   .page{display:block;max-width:var(--col-max)}
   nav.index{position:static;max-height:none;overflow:visible;margin:2rem 0}
   nav.index ul{columns:2;column-gap:2rem}
-  /* Narrow: the toggle has no column to sit above, so in flow it strands
-     itself in the banner's gap and crowds the eyebrow. Pin it instead —
-     a thumb-reachable tab, styled as furniture rather than a floating
-     UI chip. It rides in the .page bottom padding, clear of the
-     closing banner. */
-  .schemebar{position:fixed;right:.7rem;bottom:.7rem;z-index:20;padding:0}
-  #scheme{background:var(--surface);
-    box-shadow:0 2px 10px rgba(0,0,0,.18)}
+  /* Narrow: keep the toggle at the top, in flow under the banner —
+     users look for it there and a corner-pinned tab reads as page
+     furniture and gets missed. Trim its padding so it sits in the
+     banner's gap without crowding the eyebrow. */
+  .schemebar{padding:.6rem 0 .9rem}
 }
 @media (max-width:34rem){nav.index ul{columns:1}}
 @media print{
@@ -511,7 +515,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 <p>Formula and roll cadence: <code>Rules/house/corruption.md</code> §The floor.</p>
 <h4 id="corruption--the-door-opens-from-inside">The door opens from inside</h4>
-<p><strong>Any psi can open themselves to the Undertow for power — and almost everyone instinctively knows how.</strong> The maneuver takes one extra second, then the power simply arrives: no FP cost, no extra-effort roll — a dark variant of psi extra effort, deliberately <strong>far more effective than the legitimate version</strong>; that is what makes it tempting. Two modes, both priced in <strong>dice of Corruption, not fixed points</strong> — the gamble is the point; deterministic costs would read as a fee, not a risk: <strong>skill boost</strong> and <strong>level-borrowing</strong>. <strong>Borrowed power ignores the Berger ceiling</strong> — a documented C3 can perform C6 work, for a price. Door-opened (and borrowed/stolen) power is what reaches the <strong>impossible tier</strong> no unaided human touches (<a href="#the-closed-list">The Closed List</a> §The impossible tier). Every desperate moment is a devil's bargain the player strikes with themselves — the oppression is interactive, not just ambient.</p>
+<p><strong>Any psi can open themselves to the Undertow for power — and almost everyone instinctively knows how.</strong> The maneuver takes one extra second, then the power simply arrives: no FP cost, no extra-effort roll — a dark variant of psi extra effort, deliberately <strong>far more effective than the legitimate version</strong>; that is what makes it tempting. Two modes, both priced in <strong>dice of Corruption, not fixed points</strong> — the gamble is the point; deterministic costs would read as a fee, not a risk: <strong>skill boost</strong> and <strong>level-borrowing</strong>. <strong>Borrowed power ignores the Berger ceiling</strong> — a documented C3 can perform C6 work, for a price. Door-opened (and borrowed/stolen) power is what reaches the <strong>impossible tier</strong> almost no unaided human touches (<a href="#the-closed-list">The Closed List</a> §The impossible tier). Every desperate moment is a devil's bargain the player strikes with themselves — the oppression is interactive, not just ambient.</p>
 <p><strong>Critical failures on any psi use</strong> (all powers, Undertow-linked or not) are the involuntary version: the channel flaps open with nobody holding the door. Corruption gain is the default critical-failure special effect — strange manifestations and other punishments may stack on top, but Corruption always accrues.</p>
 <p><strong><a href="#jdit">JDIT</a> tracks above-ceiling manifestation</strong> as a standing red flag for all agents: receivers repeatedly performing above <a class="tl" href="#glossary--assay">assay</a> are presumed to be going bad. Assay error is bounded at one band, so mismeasurement innocently explains only modest overshoots — repeated multi-band performances have no innocent explanation JDIT knows of. The dossier ambiguity lives in the one-band margin (and, unknown to everyone, in <a href="#the-astral-corpus">The Astral Corpus</a>).</p>
 <p>Pricing and conversion: <code>Rules/house/corruption.md</code> §The door.</p>
@@ -775,7 +779,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li>A proper technical term for the assay (<a href="#open-threads">Open Threads</a> §Naming)</li>
 </ul>
 </section><section class="note" id="the-closed-list"><div class="eyebrow">Concept file</div><h2>The Closed List</h2>
-<p class="lede">The eleven powers that exist, the vetoes and splits that shape them, the Undertow-linkage taxonomy, and the impossible tier no unaided human reaches</p>
+<p class="lede">The eleven powers that exist, the vetoes and splits that shape them, the Undertow-linkage taxonomy, and the impossible tier almost no unaided human reaches</p>
 <p>The campaign uses a curated closed list of psionic powers: <strong>eleven powers exist</strong>, and the menu is definitive — a world-fact, not just a balance call. The full per-ability tally (every approve/veto, the power-split migration tables) is the roster <code>Rules/house/closed-list.md</code>. Build mechanics: <code>Rules/house/character-generation.md</code>.</p>
 <h3 id="the-closed-list--what-is-true">What is true</h3>
 <h4 id="the-closed-list--the-eleven-powers">The eleven powers</h4>
@@ -817,7 +821,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <p><strong>Anti-Psi is not linked — and is not really a psi power at all.</strong> What it <em>is</em> remains the open anti-psi origin question (<a href="#open-threads">Open Threads</a>); this ruling is a constraint on any future answer: whatever anti-psis do, it does not reach through the Undertow. A null is invisible to the <a class="tl" href="#glossary--deep-band">deep band</a> <em>and</em> inexplicable by it.</p>
 <p>Probability psis, porters, and psychic vampires are <em>audible</em> — <a href="#the-gardener">The Gardener</a> can find them, and their unmanifested Talent already prices alienation in. Kinetics, ergokinetics, and body-workers are the quiet professions — and therefore ANSCOM's safest hires, which its actuaries have presumably noticed. Teleportation being linked squares its blatancy with the metaplot: the flashiest power is also one the Enemy hears.</p>
 <h4 id="the-closed-list--the-impossible-tier">The impossible tier</h4>
-<p><strong>The -30 technique tier exists in the world, and no unaided human reaches it.</strong> Baseline psis — PCs included, at any realistic skill — cannot buy or attempt <a class="tl" href="#glossary--uber-technique">uber-techniques</a> (<a href="#glossary--uber-technique">Uber-technique</a>). The no-unaided-human rule is calibrated on known capabilities — ANSCOM's own models and case data — and almost all psis do work under it: those who escape it are very few and very far between. ANSCOM concretely knows of one — <a href="#h-ftling-216">Häftling 216</a>, whom it barely considers human — and it does not understand much of cases like his. But power that does not come from the psi alone can get there: <strong>door-opened</strong> performance (<a href="#corruption">Corruption</a> §The door), <strong>borrowed</strong> power, and <strong>stolen</strong> power (the Psychic Vampirism adjudication note, <span class="stub" title="not included in this dossier">2026-08-24-ability-curation</span>). A Gardener-fed <a class="tl" href="#glossary--thrall">thrall</a> or deeply tuned receiver may exhibit uber-technique effects on screen.</p>
+<p><strong>The -30 technique tier exists in the world, and almost no unaided human reaches it.</strong> Baseline psis — PCs included, at any realistic skill — cannot buy or attempt <a class="tl" href="#glossary--uber-technique">uber-techniques</a> (<a href="#glossary--uber-technique">Uber-technique</a>). The no-unaided-human rule is calibrated on known capabilities — ANSCOM's own models and case data — and almost all psis do work under it: those who escape it are very few and very far between. ANSCOM concretely knows of one — <a href="#h-ftling-216">Häftling 216</a>, whom it barely considers human — and it does not understand much of cases like his. But power that does not come from the psi alone can get there: <strong>door-opened</strong> performance (<a href="#corruption">Corruption</a> §The door), <strong>borrowed</strong> power, and <strong>stolen</strong> power (the Psychic Vampirism adjudication note, <span class="stub" title="not included in this dossier">2026-08-24-ability-curation</span>). A Gardener-fed <a class="tl" href="#glossary--thrall">thrall</a> or deeply tuned receiver may exhibit uber-technique effects on screen.</p>
 <p>The anti-corruption Mental Surgery technique (~-30 default, any failure treated as critical — <code>Rules/house/corruption.md</code>) is the first member of this class, not a one-off house number.</p>
 <ul>
 <li>The tier is a legibility horizon: JDIT's models of what psi can do are calibrated on human performance. An uber-technique effect on a case is evidence of the door, not of skill — the players can learn to read it that way (<a href="#the-berger-scale">The Berger Scale</a>'s <a class="tl" href="#glossary--assay">assay</a> worldview breaks down exactly here).</li>
@@ -940,7 +944,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <div class="tc">
 <p><em>The needle has an uncontrolled natural analogue — <strong>astral cord severance</strong> (<span class="stub" title="not included in this dossier">2026-08-24-options</span>). Severance violently halts and cripples almost all the LAMs <strong>in the body</strong> and kills a large part of the nervous system: no more psi powers, ever, and presumably no dreaming thereafter, by the same mechanism as the injection. The body survives, if it survives, psi-dead and neurologically damaged. Severity is a spectrum — the physical trauma of the severing can run up to brain death, a body on life support with nobody home. The injection is the engineered version of a catastrophe the Undertow can inflict on its own.</em></p>
 </div>
-<p>The needle does not take on the very rare humans whose manifesting LAMs are in the Undertow — its target is the physical LAM, and theirs is elsewhere (<a href="#the-astral-corpus">The Astral Corpus</a>). <a href="#jdit">JDIT</a> does not know this failure mode exists.</p>
+<p>The needle does not take on the very rare humans whose manifesting LAMs are in the Undertow — its target is the physical LAM, and theirs is elsewhere (<a href="#the-astral-corpus">The Astral Corpus</a>). <a href="#jdit">JDIT</a> does not know this failure mode exists: it knows the needle failed on <a href="#h-ftling-216">Häftling 216</a>, but it does not know why — the corpus conjecture is a guess it cannot test, not knowledge of the mode (<a href="#the-astral-corpus">The Astral Corpus</a>).</p>
 <h3 id="the-needle--how-it-is-known-in-world">How it is known in-world</h3>
 <p>Joining ANSCOM is a one-way door, and every operative is walking toward the needle by one road or another: convert, cross the line, or retire diminished — the org's greyness is structural, not incidental. The monitoring thresholds (<a href="#the-berger-scale">The Berger Scale</a>: B6 notable, B8 career review) get their endpoint here: career review at B8 is not a euphemism for a desk. <strong>Recruits know the policy, not the price</strong>: "decommissioning" is disclosed at signing as a mandatory, classified, safe-sounding medical procedure. The IQ/DX damage, the diminishment, the death sentence for advanced cases — none of it. You learn what it costs the first time you meet a decommissioned veteran. Ex-agents are a distinctive NPC class: dimmed, marked by their old disadvantages, deaf to the broadcast — and possibly bitter about all three; many do not last long after the chair. There is no good way out — every agent is a tragic character by the nature of their powers alone, before any personal trouble they bring with them (<a href="#the-lam">The LAM</a>, <a href="#corruption">Corruption</a>). <em>Field slang: <strong>"getting dimmed"</strong> / PT <strong>"ser apagado"</strong> (<a href="#glossary--decommissioning">Decommissioning</a>).</em></p>
 <h3 id="the-needle--relations">Relations</h3>
@@ -2035,7 +2039,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <p><strong>Those drug-usage tabs are the ancestor of ANSCOM's monitoring regime.</strong> Operational doctrine is exactly what crossed whole in 1987, and the practice crossed with it — then hardened into the standing psychological evaluation, physical examination and liminon-signature baselining that follows every psionic operative today (<a href="#corruption">Corruption</a>). What began as asset preservation, keeping a good agent from burning himself out, became surveillance for thresholds that end careers quietly.</p>
 <p>So <a href="#jdit">JDIT</a> invented neither of the instruments it turns on its own psis. It inherited the watching from Washington and the needle from Moscow, and put them at the two ends of the same career.</p>
 <p>What survives of all this inside JDIT is <strong>rumor, and thin rumor</strong>: stories the 1987 intake overheard from seniors who never taught them, about Lantern agents who did the impossible — crossed the world in a step, lifted a building. The stories are secondhand, unattributable, and dying with the cohort that carries them.</p>
-<p>They are also, marginally, true. Nothing a human reaches unaided goes that high (<a href="#the-closed-list">The Closed List</a>), and the drugs were never the mechanism. What those agents were doing was opening the door (<a href="#corruption">Corruption</a>) — borrowed power ignoring the Berger ceiling — in a programme that tolerated it and may have encouraged it, without ever having a concept for what it was or what it cost. It was never systematic and it was never common. It happened.</p>
+<p>They are also, marginally, true. Almost nothing a human reaches unaided goes that high (<a href="#the-closed-list">The Closed List</a>), and the drugs were never the mechanism. What those agents were doing was opening the door (<a href="#corruption">Corruption</a>) — borrowed power ignoring the Berger ceiling — in a programme that tolerated it and may have encouraged it, without ever having a concept for what it was or what it cost. It was never systematic and it was never common. It happened.</p>
 <h3 id="founding-of-the-jdit--public-version">Public version</h3>
 <ul>
 <li><strong>Commoner:</strong> JDIT is unknown or a do-nothing UN defense initiative.</li>
@@ -2410,7 +2414,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 <h3 id="pale-lantern--the-impossible-work">The impossible work</h3>
 <p>Stories survive inside <a href="#jdit">JDIT</a> of Lantern agents who crossed the world in a step or lifted a building. They are secondhand — overheard by the juniors who transferred in 1987 from seniors who never taught them — unattributable, and dying with that cohort.</p>
-<p>They are also, marginally, true. No unaided human reaches that tier (<a href="#the-closed-list">The Closed List</a>) and the drugs were never the mechanism. Those agents were <strong>opening the door</strong> (<a href="#corruption">Corruption</a>), borrowing power that ignores the Berger ceiling, inside a programme that tolerated and may have encouraged it while having no concept whatever of what it was or what it cost. It was never systematic and never common. It happened.</p>
+<p>They are also, marginally, true. Almost no unaided human reaches that tier (<a href="#the-closed-list">The Closed List</a>) and the drugs were never the mechanism. Those agents were <strong>opening the door</strong> (<a href="#corruption">Corruption</a>), borrowing power that ignores the Berger ceiling, inside a programme that tolerated and may have encouraged it while having no concept whatever of what it was or what it cost. It was never systematic and never common. It happened.</p>
 <h3 id="pale-lantern--relations">Relations</h3>
 <ul>
 <li><a href="#the-berger-programme">The Berger Programme</a> — source. Theory, proto-scale, name, and several scientists, all taken in 1945.</li>
@@ -2907,7 +2911,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li><strong>Psychometabolism</strong> — mostly defensive and survival-focused; regenerates most damage almost instantaneously; his aging has effectively stopped (GM-approved additional build; the aging-retardant presentation is cataloged doctrine — <a href="#anscom">ANSCOM</a> §Operative monitoring).</li>
 <li><strong>Psychokinesis</strong> — strong, and mostly offensive: rage and vengeance drove which abilities developed.</li>
 <li><strong>Telepathy</strong> — weak in send/receive; his only developed ability is the one causing direct damage to the target (Mental Stab, <span class="stub" title="not included in this dossier">53-psionic-powers</span>).</li>
-<li><strong>Quiet.</strong> PM and PK are not Undertow-linked; his Telepathy Talent is modest, so his Corruption floor sits near the universal minimum (<a href="#the-closed-list">The Closed List</a> §<a class="tl" href="#glossary--the-undertow">Undertow</a> linkage). His rage is his own.</li>
+<li><strong>Quiet.</strong> PM and PK are not Undertow-linked and his Telepathy Talent is modest, so almost nothing about him is audible on the <a class="tl" href="#glossary--deep-band">deep band</a> (<a href="#the-closed-list">The Closed List</a> §<a class="tl" href="#glossary--the-undertow">Undertow</a> linkage). His rage is his own. <strong>His Corruption is not tracked</strong>: Corruption is machinery for PCs and PC-like characters, and he is ruled the exception — a very unique NPC (<a href="#corruption">Corruption</a>; the Gardener-corruption vs. estrangement tally split is queued at <a href="#open-threads">Open Threads</a> §Corruption calibration).</li>
 <li><strong>The corpus.</strong> His shadow body is an <a class="tl" href="#glossary--astral-corpus">astral corpus</a> in <a href="#the-astral-corpus">The Astral Corpus</a>'s full sense — the seat his deep power runs through, not the brain alone. It is frozen at the age he was last fully conscious — his late twenties — which is why he still looks it. He is the one fringe case <a href="#anscom">ANSCOM</a> concretely knows that escapes the no-impossible-feats rules (<a href="#the-closed-list">The Closed List</a> §The impossible tier).</li>
 </ul>
 <h3 id="h-ftling-216--stat-block">Stat block</h3>
@@ -2925,7 +2929,8 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <h3 id="h-ftling-216--relationships">Relationships</h3>
 <ul>
 <li><a href="#the-berger-programme">The Berger Programme</a> — what broke him into power</li>
-<li><a href="#pale-lantern">PALE LANTERN</a> — held him 1945–1987 under heavy continuous damage therapy</li>
+<li>US Army intelligence — held him 1945–46, trying to mirror the Nazi containment techniques as closely as possible</li>
+<li><a href="#pale-lantern">PALE LANTERN</a> — held him 1946–1987 under heavy continuous damage therapy; it did little to change the Army's regimen after taking over</li>
 <li><a href="#anscom">ANSCOM</a> — his keeper since 1987, under a slightly more humane regimen; experimented on him only a little, and more humanely — it tried to get his cooperation with small incentives and prizes</li>
 <li><a href="#anscom-vienna-hub">ANSCOM Vienna Hub</a> — the deep cell; the level, and later the complex, took its name from him (<a href="#glossary--tiergarten">Tiergarten</a>)</li>
 </ul>
@@ -2937,7 +2942,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li>Winter 1939–40: an incident in the camp — later recognized to be liminic in nature; <a href="#the-berger-programme">The Berger Programme</a> took him</li>
 <li>1940–1944: <a href="#the-jena-lab">The Jena Lab</a> — extensively experimented upon, unlocking deep reserves; tattooed by the programme</li>
 <li>1944–45: judged too dangerous to move at the wind-down; they tried to kill him, and it did not take (<a href="#jena-inheritance">Jena Inheritance</a>)</li>
-<li>April 1945: taken by US forces in the Jena strip; into <a href="#pale-lantern">PALE LANTERN</a> custody</li>
+<li>April 1945: taken by US forces in the Jena strip; held by US Army intelligence, which mirrored the Nazi containment techniques as closely as it could; absorbed into <a href="#pale-lantern">PALE LANTERN</a> custody at the programme's 1946 founding</li>
 <li>1987: transferred to <a href="#jdit">JDIT</a>/<a href="#anscom">ANSCOM</a> at the founding; moved into the purpose-built deep cell under <a href="#vienna">Vienna</a> during the hub's construction</li>
 <li>2026-09-14: note created</li>
 </ul>
@@ -3530,6 +3535,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <h5 id="open-threads--corruption-calibration">Corruption calibration</h5>
 <p>Pin the provisional numbers from the corruption pass (<span class="stub" title="not included in this dossier">2026-08-24-corruption</span>):</p>
 <ul>
+<li><strong>Separate the tallies: Gardener corruption vs. estrangement</strong> (ruled direction, 2026-09-14) — the two must not be mixed up; they can probably share mechanics but should carry separate tallies. This revises <a href="#corruption">Corruption</a>'s current one-substance model ("estrangement <a class="tl" href="#glossary--the-drift">drift</a> <em>is</em> the Corruption total") — that rewrite is the work, and it belongs to this calibration sitting. Related scope ruling, same date: <strong>Corruption is machinery for PCs and PC-like characters</strong> — unique NPCs can be exempted from tracking entirely (<a href="#h-ftling-216">Häftling 216</a> is the standing exception). C-056-style reminder: C-063 stays open in <span class="stub" title="not included in this dossier">Contradictions</span> until this lands — do not clear it early.</li>
 <li><strong>Floor formula</strong> — currently 5 × max(manifest B, highest <a class="tl" href="#glossary--the-undertow">Undertow</a> Talent). Model the monthly-roll probabilities for the average PC, average <a class="tl" href="#glossary--receiver">receiver</a>, and the B6/B8 bands, and make the monitoring thresholds (<code>Rules/house/corruption.md</code>) fall out of the math.</li>
 <li><strong>Boost-dice idiom</strong> — RAW pts ÷ 3.5 → d6</li>
 <li><strong>Crit-fail die size</strong> — 1d-2 vs 1d</li>
@@ -3648,7 +3654,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li><em>the psi-crazy → ONE clinical state — <strong>liminic overexposure syndrome</strong>, field <strong>"deaf" / "surdo"</strong> (the splits/lumps design note does not apply here — the end state is single, it's just the Corruption mechanics)</em></li>
 <li><em>"the <a class="tl" href="#glossary--the-depths">Depths</a>" confirmed (<strong>"as Profundezas"</strong>), formal layer pair <strong>near field / far field</strong></em></li>
 <li><em>the elimination squad → compartment <strong><a class="tl" href="#glossary--deadwood">DEADWOOD</a></strong> (arboreal codeword series canonized with <a class="tl" href="#glossary--canopy">CANOPY</a>), field whisper <strong>"the Janitors" / "os Faxineiros"</strong></em></li>
-<li><em><a class="tl" href="#glossary--ler">LER</a> field slang (<strong>"the hearing test" / "a audiometria"</strong>; <a class="tl" href="#glossary--the-drift">drift</a> = <strong>"going deaf" / "ficando surdo"</strong>)</em></li>
+<li><em><a class="tl" href="#glossary--ler">LER</a> field slang (<strong>"the hearing test" / "a audiometria"</strong>; drift = <strong>"going deaf" / "ficando surdo"</strong>)</em></li>
 <li><em><a class="tl" href="#glossary--decommissioning">decommissioning</a> field slang (<strong>"getting dimmed" / "ser apagado"</strong>)</em></li>
 <li><em>terminal mutation cases → <strong><a class="tl" href="#glossary--liminic-neoplasia">liminic neoplasia</a></strong>, deliberately no field word</em></li>
 <li><em>noise ruled field-only with formal stack <strong>liminic event / anomalous event</strong></em></li>
@@ -3798,7 +3804,10 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li><strong>Deep-lore corruption</strong> — should learning Gardener-truths and experiential archive material corrupt? (deferred from <a href="#corruption">Corruption</a> — probably yes; ordinary investigation ruled clean. Decide when the campaign approaches the deep files.)</li>
 <li><strong>Does carrying a cyberpsi implant show on assays?</strong> — open since the ability-curation pass (<span class="stub" title="not included in this dossier">2026-08-24-ability-curation</span>); <a href="#the-closed-list">The Closed List</a> settles the implant's existence and provenance and says nothing about its assay signature. (Access to the implant within <a href="#anscom">ANSCOM</a> is open there too.)</li>
 <li><strong>More JDIT shade</strong> — what other grey practices does the org have? The GM wants it genuinely grey: the amplifier (<a href="#anscom">ANSCOM</a>), the mandatory decommissioning injection (<a href="#the-needle">The Needle</a>), the drug-trade funding pipeline with its city addiction agents ("JDIT's money" thread below; <a href="#anscom">ANSCOM</a>), and the memory sanitation of anyone read into — or merely brushed against — <a href="#glossary--canopy">CANOPY</a>, which ANSCOM reckons mostly consequenceless (<a href="#anscom">ANSCOM</a>) are canon; others to come.</li>
-<li>_Candidate: informal, un-needled retirement for assets too valuable to dim (<a href="#the-needle">The Needle</a>   Not allow-list problems — do not add these:</li>
+<li>_Candidate: informal, un-needled retirement for assets too valuable to dim (<a href="#the-needle">The Needle</a>   Findings of the 2026-09-14 lorekeeper survey (event-hunter run,</li>
+</ul>
+<p>GM-ordered): happenings living inside other notes that could earn Campaign/Events/ articles. Agent proposals, NOT canon — each becomes an article only by GM decision (grill-with-canon or worldsmith). Tier labels are the agent's proposals. Headline finding: the Cold War era (1950–1986) is the barest timeline band — one event article — and its most load-bearing happening (the funding break) is homeless.  Not allow-list problems — do not add these:</p>
+<ul>
 <li>www.cdse.edu returns HTTP 403 Forbidden (their server refuses; an allow-list entry will not help).</li>
 <li>A blanket *.mil rule would be both too broad and beside the point: armypubs.army.mil and dni.gov both fetch normally. The blocks are specific hosts, not a .mil pattern.</li>
 <li>Bash has no outbound network at all (CONNECT returns 403). That is a separate layer from the WebFetch allow-list, and it is why the research agents hand-wrote PDF text extractors in Python instead of using pdftotext.</li>
