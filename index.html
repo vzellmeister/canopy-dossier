@@ -13,23 +13,30 @@
 body{margin:0;background:var(--paper);color:var(--ink);
   font-family:var(--serif);
   font-size:var(--t-base);line-height:var(--lh);
-  overflow-x:hidden}
+  overflow:hidden}
 /* Paper grain / film grain: a texture behind the text, never a filter
    over it — legibility is the point of the look being imitated. */
 body::before{content:"";position:fixed;inset:0;pointer-events:none;
   z-index:9;opacity:var(--grain-op);mix-blend-mode:var(--grain-mode);
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
-.page{max-width:var(--page-max);margin:0 auto;padding:0 1.25rem 6rem;
+/* Web register: the classification ribbons stay fixed top and bottom
+   of the viewport (ruled 2026-09-14); only .scroll (the content
+   between them) scrolls. A full-viewport-height flex column, so the
+   ribbons are plain full-width flex children — no negative-margin
+   full-bleed — and the window itself never scrolls, which is what
+   kept the sticky sidebar and the ribbons from fighting over one
+   scroll box. */
+.shell{display:flex;flex-direction:column;height:100dvh}
+.shell>.classification{flex:0 0 auto;margin:0}
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;
+  position:relative}
+.page{max-width:var(--page-max);margin:0 auto;padding:1.5rem 1.25rem 2rem;
   display:grid;grid-template-columns:var(--nav-w) minmax(0,var(--col-max));
   gap:0 var(--gutter);align-items:start;justify-content:center;
   position:relative;z-index:1}
-/* Explicit rows throughout: anything left to auto-placement lands
-   after every placed item, i.e. at the foot of a very long page. */
-.page>.classification{grid-column:1/-1}
-.page>.classification.top{grid-row:1}
-.page>.classification.bot{grid-row:5}
-header.cover{grid-column:2;grid-row:3}
-main{grid-column:2;grid-row:4;min-width:0}
+/* Explicit rows: schemebar (1), cover (2), main (3); nav spans 2-3. */
+header.cover{grid-column:2;grid-row:2}
+main{grid-column:2;grid-row:3;min-width:0}
 /* Table I: sans serif, bold, 14pt, uppercase — the banner outsizes the
    text it guards. ISOO: top AND bottom of the document. */
 .classification{font-family:var(--sans);font-weight:700;
@@ -39,13 +46,12 @@ main{grid-column:2;grid-row:4;min-width:0}
 .classification.lg{font-size:var(--t-lg);letter-spacing:.04em}
 .classification.sm{font-size:.72rem;letter-spacing:.22em}
 /* Ruled 2026-09-14: the dossier renders in the web-page register, so
-   its banners run full-bleed like a classified system's ribbon — the
-   ISOO paper inset stays the rule for paper-register documents (the
-   playerbook's treatment is deliberately undecided). calc(50% - 50vw)
-   breaks out of the centered .page box; body overflow-x:hidden
-   absorbs the scrollbar-width overshoot. */
-.classification.top{margin:0 calc(50% - 50vw) var(--sp-6)}
-.classification.bot{margin:var(--sp-6) calc(50% - 50vw) 0}
+   its classification ribbons run full width and stay fixed top and
+   bottom of the viewport — the classified-system convention, where a
+   ribbon marks every screen, not the ISOO paper inset (which stays the
+   rule for paper-register documents; the playerbook's treatment is
+   deliberately undecided). Geometry is on .shell above; the ribbons
+   carry no outer margin of their own. */
 header.cover{margin-bottom:var(--sp-4)}
 .eyebrow{font-family:var(--mono);
   font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;
@@ -54,16 +60,27 @@ h1{font-family:var(--sans);font-weight:800;font-size:var(--t-xl);
   text-transform:uppercase;letter-spacing:.02em;
   line-height:1.15;margin:.1em 0 .4em;text-wrap:balance}
 /* Scheme toggle: dark is opt-in, never automatic. */
-.schemebar{grid-column:1/-1;grid-row:2;display:flex;
+.schemebar{grid-column:1/-1;grid-row:1;display:flex;
   justify-content:flex-end;padding:.7rem 0 0}
 #scheme{font-family:var(--mono);font-size:var(--t-xs);
   text-transform:uppercase;letter-spacing:.12em;background:none;
   color:var(--muted);border:.75pt solid var(--line);
   padding:.4em .8em;cursor:pointer}
 #scheme:hover{color:var(--stamp);border-color:var(--stamp)}
+/* Back-to-top: furniture, not a floating UI chip. Hidden until the
+   reader is more than one viewport down (see SCROLL_JS), pinned
+   bottom-right clear of the closing banner. */
+#totop{position:fixed;right:1.25rem;bottom:1.25rem;z-index:30;
+  font-family:var(--mono);font-size:var(--t-xs);text-transform:uppercase;
+  letter-spacing:.12em;background:var(--surface);color:var(--muted);
+  border:.75pt solid var(--line);padding:.5em .8em;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.18);
+  opacity:0;visibility:hidden;transition:opacity .18s ease}
+#totop.show{opacity:1;visibility:visible}
+#totop:hover{color:var(--stamp);border-color:var(--stamp)}
 .cover p{color:var(--muted);max-width:60ch}
-nav.index{grid-column:1;grid-row:3/span 2;position:sticky;top:1rem;
-  max-height:calc(100vh - 2rem);overflow-y:auto;align-self:start;
+nav.index{grid-column:1;grid-row:2/span 2;position:sticky;top:1rem;
+  max-height:calc(100dvh - 9rem);overflow-y:auto;align-self:start;
   background:var(--surface);border:1px solid var(--line);
   padding:1.1rem 1.4rem;margin:0}
 nav.index details{margin:.9em 0 0}
@@ -179,8 +196,14 @@ a.ev:hover .ev-name,a.ev:focus-visible .ev-name{text-decoration:underline}
 }
 @media (max-width:34rem){nav.index ul{columns:1}}
 @media print{
+  body{overflow:visible}
   body::before{display:none}
   .schemebar{display:none}
+  #totop{display:none}
+  /* Unwrap the fixed shell: on paper the banners flow with the
+     document (top and bottom), per ISOO. */
+  .shell{display:block;height:auto}
+  .scroll{overflow:visible}
   .page{display:block;max-width:var(--col-max)}
   nav.index{position:static;max-height:none;overflow:visible;margin:2rem 0}
   section.note{break-inside:avoid;border:none;padding:0 0 1rem}
@@ -203,8 +226,10 @@ a.ev:hover .ev-name,a.ev:focus-visible .ev-name{text-decoration:underline}
 .pm{color:var(--cls-secret);font-weight:700}
 @media print{
 .tc{background:none;border:none;box-shadow:none;padding:0;
-  break-inside:avoid}}.classification{background:var(--cls-secret);color:var(--cls-secret-fg)}</style></head><body><div class="page">
+  break-inside:avoid}}.classification{background:var(--cls-secret);color:var(--cls-secret-fg)}</style></head><body><div class="shell">
 <div class="classification lg top">JDIT SECRET//CANOPY — GM eyes only, not for players</div>
+<div class="scroll">
+<div class="page">
 <div class="schemebar"><button id="scheme" type="button"
   aria-pressed="false">Dark scheme</button></div>
 <header class="cover">
@@ -3814,8 +3839,11 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 </section>
 </main>
+</div>
+</div>
 <div class="classification lg bot">JDIT SECRET//CANOPY — GM eyes only, not for players</div>
 </div>
+<button id="totop" type="button" aria-label="Back to top">↑ Top</button>
 <script>
 (function(){
   var tip=document.createElement('div');
@@ -3891,5 +3919,24 @@ Dotted-underline terms reference notes not included in this dossier.</p>
     b.setAttribute('aria-pressed',String(!dark));
     b.textContent=dark?'Dark scheme':'Light scheme';
   });
+})();
+</script>
+<script>
+(function(){
+  var t=document.getElementById('totop'),
+      s=document.querySelector('.scroll'),
+      bot=document.querySelector('.shell>.classification.bot');
+  if(!t||!s)return;
+  function place(){t.style.bottom=((bot?bot.offsetHeight:0)+16)+'px';}
+  function upd(){
+    if(s.scrollTop>s.clientHeight){t.classList.add('show');}
+    else{t.classList.remove('show');}
+  }
+  s.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',function(){place();upd();});
+  t.addEventListener('click',function(){
+    s.scrollTo({top:0,behavior:'smooth'});
+  });
+  place();upd();
 })();
 </script></body></html>
