@@ -49,9 +49,8 @@ main{grid-column:2;grid-row:3;min-width:0}
    its classification ribbons run full width and stay fixed top and
    bottom of the viewport — the classified-system convention, where a
    ribbon marks every screen, not the ISOO paper inset (which stays the
-   rule for paper-register documents; the playerbook's treatment is
-   deliberately undecided). Geometry is on .shell above; the ribbons
-   carry no outer margin of their own. */
+   rule for paper-register documents). Geometry is on .shell above; the
+   ribbons carry no outer margin of their own. */
 header.cover{margin-bottom:var(--sp-4)}
 .eyebrow{font-family:var(--mono);
   font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;
@@ -108,7 +107,7 @@ h3{font-family:var(--sans);font-size:var(--t-base);font-weight:600;
 h4,h5{font-family:var(--sans);font-size:var(--t-base);font-weight:600;
   margin:var(--sp-2) 0 var(--sp-1)}
 p{margin:.65em 0}
-ul{margin:.5em 0;padding-left:1.3em}
+ul,ol{margin:.5em 0;padding-left:1.3em}
 li{margin:.3em 0}
 a{color:var(--link);text-decoration-color:color-mix(in srgb,var(--link) 45%,transparent);
   text-underline-offset:2px}
@@ -3281,14 +3280,20 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 <h3 id="01-military-manual-conventions--2-standard-front-matter">2. Standard front matter</h3>
 <p>Order of elements is highly stereotyped:</p>
-<p>1. <strong>Cover</strong>: number, title, date, headquarters line, and a <strong>distribution restriction statement</strong> — the unrestricted one reads "DISTRIBUTION RESTRICTION: Approved for public release; distribution is unlimited." (Restricted manuals instead name who may hold them and give a destruction notice.) 2. <strong>Supersession line</strong>, printed on the cover and/or title page: <em>"This publication supersedes FM 3-84, dated 21 April 2014."</em> Exactly this formula — publication number plus full date of the thing replaced. A change (errata) issue is marked "Change 1" with its own date and a list of changed pages. 3. <strong>Preface</strong>, with near-invariant components:</p>
+<ol>
+<li><strong>Cover</strong>: number, title, date, headquarters line, and a <strong>distribution restriction statement</strong> — the unrestricted one reads "DISTRIBUTION RESTRICTION: Approved for public release; distribution is unlimited." (Restricted manuals instead name who may hold them and give a destruction notice.)</li>
+<li><strong>Supersession line</strong>, printed on the cover and/or title page: <em>"This publication supersedes FM 3-84, dated 21 April 2014."</em> Exactly this formula — publication number plus full date of the thing replaced. A change (errata) issue is marked "Change 1" with its own date and a list of changed pages.</li>
+<li><strong>Preface</strong>, with near-invariant components:</li>
+</ol>
 <ul>
 <li>Purpose: "FM X-XX provides doctrine for …"</li>
 <li>Applicability: <em>"This publication applies to the Active Army, Army National Guard/Army National Guard of the United States, and United States Army Reserve unless otherwise stated."</em></li>
 <li>Proponent statement: <em>"The proponent of this publication is the United States Army Combined Arms Center."</em> — followed by an invitation to send comments "on DA Form 2028 (Recommended Changes to Publications and Blank Forms)" to a named office and address.</li>
 <li>A gender-usage note and a note that terms defined in the text are italicized/asterisked (see §4).</li>
 </ul>
-<p>4. <strong>Introduction</strong> (unnumbered chapter): what changed doctrinally from the superseded edition, chapter-by-chapter summary.</p>
+<ol>
+<li><strong>Introduction</strong> (unnumbered chapter): what changed doctrinally from the superseded edition, chapter-by-chapter summary.</li>
+</ol>
 <h3 id="01-military-manual-conventions--3-chapter-and-paragraph-numbering">3. Chapter and paragraph numbering</h3>
 <ul>
 <li>Chapters are numbered; <strong>every paragraph in the body carries a chapter-dash-serial number</strong>: 1-1, 1-2, … 2-1, 2-2. Cross-references cite them: "see paragraph 3-12". This is the single most recognizable formatting feature of Army doctrine.</li>
@@ -3512,7 +3517,16 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li>Titles are unornamented noun phrases (<em>Operations</em>; <em>Counterintelligence Interrogation</em>; <em>Simple Sabotage Field Manual</em>); the flavor lives in the stamps, not the title.</li>
 </ul>
 <h3 id="04-register-phrasing-catalog--8-sentence-shape-summary-the-sound-of-the-genre">8. Sentence-shape summary (the sound of the genre)</h3>
-<p>1. Definitional flat: "X is …" / "<em>x</em>: the … of … for the purpose of …" 2. Role-subject present tense: "The interrogator determines …" / "Commanders ensure …" 3. Gated prohibition: "Personnel will not X without prior coordination with Y." / "Prior approval at the ___ level must be obtained if …" 4. Scoped utility: "X is most useful when …; it cannot by itself …" 5. Hedged finding, then instruction: "Experience indicates that … Accordingly, the ___ should …" 6. Enumerated conditions: "Approval is required if: (1) …; (2) …; (3) …" 7. Imperative list item: "Insist on …" / "Never permit …" 8. Institutional liability clause: "… is especially likely to involve illegality and to entail damaging consequences for ___."</p>
+<ol>
+<li>Definitional flat: "X is …" / "<em>x</em>: the … of … for the purpose of …"</li>
+<li>Role-subject present tense: "The interrogator determines …" / "Commanders ensure …"</li>
+<li>Gated prohibition: "Personnel will not X without prior coordination with Y." / "Prior approval at the ___ level must be obtained if …"</li>
+<li>Scoped utility: "X is most useful when …; it cannot by itself …"</li>
+<li>Hedged finding, then instruction: "Experience indicates that … Accordingly, the ___ should …"</li>
+<li>Enumerated conditions: "Approval is required if: (1) …; (2) …; (3) …"</li>
+<li>Imperative list item: "Insist on …" / "Never permit …"</li>
+<li>Institutional liability clause: "… is especially likely to involve illegality and to entail damaging consequences for ___."</li>
+</ol>
 <h3 id="04-register-phrasing-catalog--sources">Sources</h3>
 <ul>
 <li>KUBARK Counterintelligence Interrogation (1963), declassified scans: https://nsarchive2.gwu.edu/NSAEBB/NSAEBB27/docs/doc01.pdf — local copy: <code>pdfs/kubark-1963-nsarchive-part1.pdf</code> ; https://documents.theblackvault.com/documents/terrorism/kubarkinterrogationmanual.pdf — local copy: <code>pdfs/kubark-1963.pdf</code></li>
@@ -3566,7 +3580,13 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <p>The <strong>Coordinate Remote Viewing training manual</strong> (commonly "the CRV manual" or "the DIA CRV manual," dated 1 May 1986) codifies the training methodology that Ingo Swann developed at SRI and taught to the Fort Meade military viewers. It was written primarily by then-Captain <strong>Paul H. Smith</strong> (with input from the other Swann-trained viewers), an introductory section supplied via unit chief Skip Atwater (apparently drafted by Joseph McMoneagle), and was printed at the DIA press in May 1986. Swann reviewed the finished text and called it a comprehensive and accurate document. Notably, the manual itself was <strong>never formally classified</strong>, which is why the copy leaked to the remote -viewing community in 1998 (posted publicly 5 July 1998) circulates freely; a closely related, formerly classified companion in the CIA collection is "Coordinate Remote Viewing Stages I–VI and Beyond" (February 1985).</p>
 <h3 id="02-crv-manual-structure-terminology--overall-structure">Overall structure</h3>
 <p>The manual is built like a military technical manual for a skill nobody can explain: a theory section proposing a working model, then a stage-by-stage protocol, with <strong>every stage chapter opening with numbered concept definitions</strong> before any procedure, and a consolidated glossary at the end. The layout runs approximately:</p>
-<p>1. <strong>Introduction</strong> — program context, what CRV is, training philosophy. 2. <strong>Theory</strong> — the model: the Matrix, the signal line, the viewer's subconscious and autonomic nervous system as the receiving apparatus. 3. <strong>Structure</strong> — why rigid procedural format is the load-bearing element. 4. <strong>Stages I–VI</strong> — one section each, always in the same internal order: <em>Concept</em>, <em>Definitions</em>, <em>Site requirements</em>, then mechanics and drills. 5. <strong>Glossary</strong> — the section definitions recapitulated alphabetically.</p>
+<ol>
+<li><strong>Introduction</strong> — program context, what CRV is, training philosophy.</li>
+<li><strong>Theory</strong> — the model: the Matrix, the signal line, the viewer's subconscious and autonomic nervous system as the receiving apparatus.</li>
+<li><strong>Structure</strong> — why rigid procedural format is the load-bearing element.</li>
+<li><strong>Stages I–VI</strong> — one section each, always in the same internal order: <em>Concept</em>, <em>Definitions</em>, <em>Site requirements</em>, then mechanics and drills.</li>
+<li><strong>Glossary</strong> — the section definitions recapitulated alphabetically.</li>
+</ol>
 <h4 id="02-crv-manual-structure-terminology--the-six-stages">The six stages</h4>
 <p>Each stage "opens the aperture" wider, admitting more detailed signal. The February 1985 stages document characterizes them (verbatim for IV–VI):</p>
 <ul>
@@ -3658,7 +3678,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 <p><em>Local copies of the primary documents are in <code>pdfs/</code>, noted per source above.</em></p>
 </section><section class="note" id="open-threads"><div class="eyebrow">Open threads</div><h2>Open threads — Beasts Beneath the Canopy</h2>
-<p>The central ledger of everything flagged "expand later." Each entry links to where the thread was minted; resolve an item by moving the decision into the owning articles and then <strong>deleting it</strong> — this file tracks what is still open, not what used to be. Any still-live <a class="tl" href="#glossary--residue">residue</a> of a resolved item stays behind as its own item. Checkboxes mark open work, one item per checkbox: a single yet-unanswered question (or, in the task categories, a single piece of work). A thread's shared context and banked rulings travel as italic passages under its heading or parent bullet; the thread is open while any of its checkboxes are — delete the heading with the last one. Five categories matter: <strong>chores</strong> must be settled before session 0; <strong>mechanical TODO</strong> is manual refactor work whose decisions are already made; <strong>threads</strong> are undefined lore waiting for development; <strong>revision pending</strong> holds current rulings stranded in sitting notes and awaiting promotion into the owning articles; <strong>deliberate ambiguities</strong> are load-bearing unknowns — do NOT resolve them casually, they are plot inventory. A final section, <strong>toolchain &amp; infrastructure</strong>, sits apart from all five: it tracks repository and tooling work and holds no campaign, setting, or lore content.</p>
+<p>The central ledger of everything flagged "expand later." Each entry links to where the thread was minted; resolve an item by moving the decision into the owning articles and then <strong>deleting it</strong> — this file tracks what is still open, not what used to be. Any still-live <a class="tl" href="#glossary--residue">residue</a> of a resolved item stays behind as its own item. Checkboxes mark open work, one item per checkbox: a single yet-unanswered question (or, in the task categories, a single piece of work). A thread's shared context and banked rulings travel as italic passages under its heading or parent bullet; the thread is open while any of its checkboxes are — delete the heading with the last one. Six categories matter: <strong>chores</strong> must be settled before session 0; <strong>mechanical TODO</strong> is manual refactor work whose decisions are already made; <strong>player booklet</strong> is the chapter list of the player booklet — handout writing, one chapter per checkbox, resolved when the chapter lands; <strong>threads</strong> are undefined lore waiting for development; <strong>revision pending</strong> holds current rulings stranded in sitting notes and awaiting promotion into the owning articles; <strong>deliberate ambiguities</strong> are load-bearing unknowns — do NOT resolve them casually, they are plot inventory. A final section, <strong>toolchain &amp; infrastructure</strong>, sits apart from all six: it tracks repository and tooling work and holds no campaign, setting, or lore content.</p>
 <h3 id="open-threads--chores-settle-before-session-0">Chores (settle before session 0)</h3>
 <h4 id="open-threads--corruption-the-berger-scale">Corruption &amp; the Berger scale</h4>
 <ul>
@@ -3712,7 +3732,6 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <h5 id="open-threads--genesis-outputs-deferred-from-campaign-genesis">Genesis outputs (deferred from campaign-genesis)</h5>
 <ul>
 <li><strong><a href="#leaflitter">LEAFLITTER</a></strong> (the opening arc) — direction ruled: opens <strong>case-of-the-week</strong>, slow build; the early procedural rhythm deliberately trains player expectations so later arcs can subvert them. Arc note holds the blurb; still to build: the case list and the foreshadowing plan (one loose end per future arc to reveal later).</li>
-<li><strong>Session-0 player brief — the mechanical disclosure.</strong> The brief is written (<span class="stub" title="not included in this dossier">Player Briefing</span>), but it carries only the in-prose line that the gift has a price. It still has to carry the agreed disclosure — <em>psi use carries risks, and the GM may assign disadvantages</em> — and nothing more (<span class="stub" title="not included in this dossier">2026-08-24-corruption</span>).</li>
 </ul>
 <p><em>PCs: fresh-out-of-training recruits, likely pre-mades, starting at their floor (<a href="#corruption">Corruption</a>).</em></p>
 <p><em>Char-gen rulings banked in <span class="stub" title="not included in this dossier">2026-08-24-corruption</span>: buying Corruption at creation is allowed <strong>with GM-added secret <a class="tl" href="#glossary--noise">noise</a></strong> (RAW price: every 10 points of Corruption = -1 CP of disadvantage value, <span class="stub" title="not included in this dossier">55-horror</span> §Many Roads to Hell); weighted-list disadvantages are takeable at creation as <em>normal</em> disadvantages, with no corruption history attached.</em></p>
@@ -3724,7 +3743,89 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li>decide whether the sitting-note corpus itself needs consolidation once play begins</li>
 </ul>
 <h3 id="open-threads--mechanical-todo-manual-work-decisions-already-made">Mechanical TODO (manual work — decisions already made)</h3>
-<p><em>(nothing queued — the organelle/<a class="tl" href="#glossary--liminon">liminon</a> refactor of 2026-08-31 was executed the same day; its rulings live in <a href="#the-lam">The LAM</a> and <a href="#discovery-of-the-liminon">Discovery of the Liminon</a>)</em></p>
+<ul>
+<li><strong>Prose migration to the <a class="tl" href="#glossary--the-house">house</a> writing style</strong> (added 2026-09-15) — <em>Ruled 2026-09-15 (GM): the SJ Games editorial style is adopted wholesale for prose (<code>Tools/writing-style.md</code>); the visual style is explicitly not adopted — the researched military/intelligence document look in <code>Tools/visual-style.md</code> stands. No prose has been rewritten yet, by instruction: existing outward-facing text keeps its current wording until this item is executed, and new text is written to the guide from now on. The guide's §Migration list names the known divergences (em-dashes, one-glyph ellipses, bold for emphasis, British spellings, "GM-only" in display text, mixed person). One pass per surface, so a half-done migration is visible here:</em></li>
+<li>rule whether dashes and ellipses convert in the sources or as a build transform in <code>Tools/canopyformat.py</code> (a transform keeps the vault's own notes readable in Obsidian; source edits keep the vault and the outputs identical)</li>
+<li><span class="stub" title="not included in this dossier">Player Briefing</span></li>
+<li>the eleven power drafts — fold into their promotion review (§Player booklet › <a class="tl" href="#glossary--liminic-discipline">Liminic Disciplines</a>)</li>
+<li>display prose of the concept articles (<code>Campaign/Concepts/</code>)</li>
+<li>display prose of the entity articles (Factions, Locations, NPCs, Events, Arcs)</li>
+<li><a href="#glossary">GLOSSARY</a> entry text</li>
+<li><span class="stub" title="not included in this dossier">Document Ledger</span> and the in-world document extracts</li>
+<li><a href="#primer">Primer</a> — re-derive, never patch</li>
+</ul>
+<h3 id="open-threads--player-booklet-chapters-to-write">Player booklet (chapters to write)</h3>
+<p>The player booklet is the one document the players reference at the table, compiled by <code>Tools/playerbook.py</code> from one module per chapter (<code>Tools/playerbook-plan.md</code>). This section is its chapter list: one checkbox per chapter still to be written, resolved when the chapter's source lands in <code>Campaign/Handouts/</code> (or, for a pure rules quick reference, when its module lands in the registry) and the entry is deleted. The order below is a provisional booklet order — the registry in <code>playerbook.py</code> is the authority once a module exists. Every chapter obeys <a href="#doctrine">Doctrine</a>'s routing rule (player-safe summaries live in Handouts, everything else is <code>gm-only</code>) and the knowledge gates in the owning concept articles. Provisional numbers (<span class="stub" title="not included in this dossier">README</span> §Provisional status) print with a visible provisional mark until the calibration sitting rules them; the build's draft stamp covers unpromoted sources.</p>
+<p><em>Chapters that exist: <strong>Player briefing</strong> (<span class="stub" title="not included in this dossier">Player Briefing</span>, <code>pb_briefing.py</code>) and <strong>Liminic Disciplines</strong> (<code>pb_powers.py</code>, from the eleven power drafts — promotion still open, below). Not a chapter, by ruling: <strong>Corruption</strong> — the agreed player disclosure is the one line <em>psi use carries risks, and the GM may assign disadvantages</em> and nothing more (<span class="stub" title="not included in this dossier">2026-08-24-corruption</span>); the Briefing carries it, <a class="tl" href="#glossary--decommissioning">decommissioning</a> appears only as disclosed policy (<a href="#the-needle">The Needle</a> §How it is known in-world), and the mechanics of the door stay behind the screen (<a href="#corruption">Corruption</a>). Not chapters either: the table agreements (the Briefing renders them) and in-world document inserts (TC 20-1 extracts are a device the chapters use — <span class="stub" title="not included in this dossier">Document Ledger</span>).</em></p>
+<ul>
+<li><strong>Booklet in-world title</strong> — a glossary decision (<a href="#glossary">GLOSSARY</a>); no candidate exists anywhere in the vault; never coined in tooling (<code>Tools/playerbook-plan.md</code> §Deferred)</li>
+</ul>
+<h4 id="open-threads--orientation-the-world">Orientation &amp; the world</h4>
+<ul>
+<li><strong>The House — ANSCOM orientation</strong> — <em><a href="#jdit">JDIT</a> and <a href="#anscom">ANSCOM</a> as a recruit is told them: squad tiers, paper name vs. fixed nickname callsign, <a class="tl" href="#glossary--appointment-titles">appointment titles</a>, <a class="tl" href="#glossary--restricted-handling">restricted handling</a>, the JDIT classification ladder (<a href="#anscom">ANSCOM</a> §Structure and strength, <a href="#glossary--program-and-clearance">Program and clearance</a>, <a href="#glossary--rank-and-office">Rank and office</a>). Body collection is common knowledge in-org; salvage and the amplifier are not (<span class="stub" title="not included in this dossier">2026-08-24-freeform</span>). Excluded: <a class="tl" href="#glossary--deadwood">DEADWOOD</a>, <a class="tl" href="#glossary--taproot">TAPROOT</a>, memory sanitation; <a class="tl" href="#glossary--prune">PRUNE</a> is an open secret above recruit level, so whether it appears is a GM call. Depends on the squad's own callsign (unruled) and the top-level classification marker (§Naming &amp; the glossary):</em></li>
+<li>write the chapter</li>
+<li><strong>Monitoring &amp; the career</strong> — <em>the hearing test, the <a class="tl" href="#glossary--ler">LER</a>, the <a class="tl" href="#glossary--assay">assay</a>, going deaf, the "three over five" idiom, decommissioning as disclosed policy (<a href="#the-berger-scale">The Berger Scale</a> §How it is known in-world, <a href="#glossary--ler">LER</a>, <a href="#glossary--assay">Assay</a>, <a href="#glossary--decommissioning">Decommissioning</a>). Hard gates: recruits know the policy, not the price (<a href="#the-needle">The Needle</a>); the Corruption disclosure line is the ceiling (<span class="stub" title="not included in this dossier">2026-08-24-corruption</span>); the LAM, the assay and the LER are CANOPY-briefing material, baseline carriage and the plasmid are not (<a href="#the-lam">The LAM</a>):</em></li>
+<li>write the chapter</li>
+<li><strong>Casework</strong> — <em>expands the Briefing's six-step case shape: the communications doctrine, noise, hot, <a class="tl" href="#glossary--going-loud">going loud</a>, restricted handling (<a href="#anscom">ANSCOM</a> §Structure and strength — communications doctrine, <a href="#glossary--field-jargon-anscom-register">Field jargon (ANSCOM register)</a>); the investigation and social rules ride the same chapter (<span class="stub" title="not included in this dossier">12-social-engineering</span> — Complementary Skills, Search Rolls, Reaction and Influence Rolls, Deception, False Identities, Questioning and Interrogation, Talking Your Way Out, the Appendix A result bands; base layer <span class="stub" title="not included in this dossier">01-core-resolution</span> §Sense Rolls, §Influence Rolls). The key-facts method in <span class="stub" title="not included in this dossier">54-psionic-campaigns</span> §3.2 is GM-side and stays out. Blocked on the medium-per-situation matrix and the on-net procedure (§JDIT &amp; ANSCOM); GURPS Mysteries is catalogued but unextracted:</em></li>
+<li>write the procedure half</li>
+<li>write the rules half</li>
+<li><strong>The world as the field believes it</strong> — <em>expands the Briefing's world section: the suspecting world, the five-stratum slang stratigraphy, what a CANOPY-read agent is briefed on — <a class="tl" href="#glossary--liminon">liminon</a>, screening, detectors, the <a class="tl" href="#glossary--lineage">lineage</a> map (<a href="#psi-in-the-world">Psi in the World</a> §A suspecting world, <a href="#glossary">GLOSSARY</a> §How the program talks, <a href="#the-undertow">The Undertow</a> §How it is known in-world, <a href="#lineages">Lineages</a>). Gated from the Gardener, the <a class="tl" href="#glossary--the-flowering">Flowering</a>, the Undertow's true nature, the human mode of <a href="#the-astral-corpus">The Astral Corpus</a> and the Gardener's hand behind the lineage map. The bare word Undertow is legitimate player lore; Undertow-linkage tags are not (plan rule 6c):</em></li>
+<li>write the chapter</li>
+<li><strong>Vienna &amp; the hub</strong> — <em>the city and <a href="#anscom-vienna-hub">ANSCOM Vienna Hub</a> as a recruit sees them, the hub colleagues (<a href="#g-rard-vasseur">Gérard Vasseur</a>, <a href="#elisabeth-starhemberg">Elisabeth Starhemberg</a>, <a href="#adrienne-calloway">Adrienne Calloway</a>, <a href="#petra-lindqvist">Petra Lindqvist</a>, <a href="#nuno-caeiro">Nuno Caeiro</a>, <a href="#janko-mari">Janko Marić</a>, <a href="#ilse-hartmann">Ilse Hartmann</a>). Gated: the underground stack and keyed rooms, <a href="#h-ftling-216">Häftling 216</a>, whether the ground goes hot. Blocked on the city's psi layer (multi-session, unwritten) and the cover bank's name (§Vienna hub):</em></li>
+<li>write the chapter</li>
+<li><strong>Field vocabulary</strong> — <em>the glossary extract (plan §Deferred). Cut line by glossary section: Program and clearance, Rank and office, Field jargon, Classified science and Undertow phenomena are in-world for a CANOPY-read agent; Truth vocabulary is excluded by its own heading; Dead vocabulary is history. Every entry carries a Portuguese table-speech form, which the booklet plausibly wants. Overlaps the Briefing's 22-row table — decide whether that table moves here. Conflict to rule first: "latent" sits in Truth vocabulary while the Briefing already glosses it as the paperwork word behind sleeper:</em></li>
+<li>rule the latent/sleeper conflict</li>
+<li>write the chapter</li>
+</ul>
+<h4 id="open-threads--building-an-agent">Building an agent</h4>
+<ul>
+<li><strong>Character generation</strong> — <em>the frame (plan §Deferred; minted campaign-side as the session-0 char-gen brief, <span class="stub" title="not included in this dossier">2026-08-23-mechanics</span> §Player-facing reveals): budgets, Psionic Powers as written over <a href="#the-closed-list">The Closed List</a>, Talent uncapped then locked, the two free Unusual Backgrounds and the Easy to Read buyback, Secret (Psi) [-30], Duty, Increased Consumption, <a class="tl" href="#glossary--crutch">crutches</a> and Psionic Crutch [-5], Telepathy Talent ≥ 1, buying Corruption at creation (<span class="stub" title="not included in this dossier">character-generation</span>; <span class="stub" title="not included in this dossier">berger-scale</span> §Crutches — hand-extract the player rulings only, never the Reputation construction; <span class="stub" title="not included in this dossier">02-character-creation</span> for the B1 checklist, attributes, secondaries and the skill cost table). Absorbs the Powers module's House Rules front section (build frame, Talent, crutches — plan §Powers module). Blocked on the point buckets, the three Talent gates, Increased Consumption scaling and the char-gen residuals (§Character generation above), and on the disadvantage limit, which no vault file states:</em></li>
+<li>state the disadvantage limit (or that there is none)</li>
+<li>write the chapter</li>
+<li><strong>Roles &amp; templates</strong> — <em>PCs are fresh recruits, likely pre-mades (§Session-0 outputs). No template exists in the vault or the KB; the mounted but unextracted <em>GURPS Psis</em> (35 pp.) is the direct source — psychic templates incl. Investigator, Secret Agent, Soldier, Parapsychologist, and a per-power "psionic package" for each discipline (§KB gaps below); <span class="stub" title="not included in this dossier">55-horror</span> §Character templates (TL8 baseline) adds Detective, Police Officer, Doctor, Tech, Academic, Journalist, Criminal, Retired Soldier and Occultist, and <span class="stub" title="not included in this dossier">16-template-toolkit</span> §Player Choice and §Lenses explain reading and customising one. In-world role words that exist: <a class="tl" href="#glossary--response-squad">response squad</a>, <a class="tl" href="#glossary--sector-squad">sector squad</a>, Actual and the numbered callsigns, <a class="tl" href="#glossary--viewer">viewer</a>, <a class="tl" href="#glossary--diver">diver</a>, <a class="tl" href="#glossary--operator">operator</a>; the appointment-title lexicon is unminted. Depends on the char-gen chapter:</em></li>
+<li>author the ANSCOM squad templates (house rules first)</li>
+<li>write the chapter</li>
+<li><strong>Traits</strong> — <em>advantages, disadvantages, perks and quirks filtered to a TL8 psi agent (<span class="stub" title="not included in this dossier">22-b1-advantages</span>, <span class="stub" title="not included in this dossier">23-b1-disadvantages</span>, <span class="stub" title="not included in this dossier">14-perks-talents-quirks-wildcards</span>, <span class="stub" title="not included in this dossier">12-social-engineering</span> Appendix B; the campaign traits in <span class="stub" title="not included in this dossier">54-psionic-campaigns</span> — UB (Psi), Secret (Psi), Social Stigma (Telepath), Code of Honor (Psychic's), Easy to Read; <span class="stub" title="not included in this dossier">55-horror</span> §Disadvantages in horror). KB gaps: the perks catalog was thinned to fantasy entries and the B1 enhancement/limitation catalog is not in the KB (§KB gaps below):</em></li>
+<li>write the chapter</li>
+<li><strong>Skills</strong> — <em>filtered to a modern investigative squad (<span class="stub" title="not included in this dossier">24-b1-skills</span> incl. Techniques; cost table and defaults cross-linked from the char-gen chapter); the crutch buy-off is a Hard psi technique per ability (<span class="stub" title="not included in this dossier">berger-scale</span> §Crutches). KB gap: Martial Arts' modern styles were omitted from the extract:</em></li>
+<li>write the chapter</li>
+<li><strong>Psi in play</strong> — <em>the operating manual the Liminic Disciplines chapter does not carry: the power modifier, abilities and their skills, Power Talent, using psionic skills, results and crippling, extra effort, psi techniques, power defense, gestalts, detecting psi, mental maneuvers, the Psionic Range Table and the Appendix B ability table (<span class="stub" title="not included in this dossier">53-psionic-powers</span> ch. 1–2, App. B); crutches and the broadcast package (<span class="stub" title="not included in this dossier">berger-scale</span>, <span class="stub" title="not included in this dossier">character-generation</span>); the universal techniques Jam and Hide Signature move here from the Powers front section; a build-time modifier appendix from <span class="stub" title="not included in this dossier">13-enhancements-limitations</span> and <span class="stub" title="not included in this dossier">10-powers</span> §Quick Reference: Power Modifiers. Precog runs "likely × hazy" and precog players are told before play (<span class="stub" title="not included in this dossier">PSC Questionnaire</span>). KB gap: Easy to Read (Psychic / Psychic Only) is outline-only in the KB and the PC package builds on it (§KB gaps):</em></li>
+<li>write the chapter</li>
+<li><strong>Liminic Disciplines</strong> — <em>exists as <code>pb_powers.py</code>, built from eleven <code>workbench: placeholder</code> drafts under <code>Campaign/Worldbuilding/Drafts/Powers/</code>; the chapter is done when they are promoted (the TC 20-1 register ruling under §Naming &amp; the glossary fires at that review). Anti-Psi stays in-world prose with zero mechanics (ruled 2026-09-13):</em></li>
+<li>GM review and promotion of the eleven power drafts to <code>Campaign/Handouts/Powers/</code></li>
+</ul>
+<h4 id="open-threads--at-the-table">At the table</h4>
+<ul>
+<li><strong>How to roll</strong> — <em><span class="stub" title="not included in this dossier">01-core-resolution</span> (the Basic Roll, margins and criticals, task difficulty, defaults, time spent, repeated attempts, contests, sense rolls) and <span class="stub" title="not included in this dossier">07-gm-reference</span> §Task Difficulty Ladder, §Physical Feats. The Briefing's "GURPS in five minutes" is the orientation — do not repeat it:</em></li>
+<li>write the chapter</li>
+<li><strong>Combat quick reference</strong> — <em><span class="stub" title="not included in this dossier">03-combat</span> end to end plus <span class="stub" title="not included in this dossier">04-injury-recovery-hazards</span> §Hit location. KB gaps: the Critical Hit, Critical Miss and Critical Head Blow Tables are referenced but reproduced nowhere; no cover or darkness tables; HP and DR of objects and cover marked "Not in KB"; High-Tech, Tactical Shooting and Gun Fu unextracted (§KB gaps):</em></li>
+<li>write the chapter</li>
+<li><strong>Getting hurt</strong> — <em>injury, recovery, hazards (<span class="stub" title="not included in this dossier">04-injury-recovery-hazards</span>; armor from <span class="stub" title="not included in this dossier">55-horror</span> §The Monster-Hunter's Toolbox). Load-bearing under full lethality (<a href="#table-agreements">Table Agreements</a>):</em></li>
+<li>write the chapter</li>
+<li><strong>Fear &amp; the mind</strong> — <em>Fright Checks: the modifier list, the Rule of 14 and the full table (<span class="stub" title="not included in this dossier">01-core-resolution</span> §Will Rolls &amp; Fright Checks), the horror expansions, multiple and cumulative checks, and recovery — buying off, therapy, psychiatric drugs (<span class="stub" title="not included in this dossier">55-horror</span> §Fright Checks: horror expansions, §Cure). Derangement is not in play (<a href="#corruption">Corruption</a>); the Stress subsystem and the Madness tables are optional overlays the GM has not adopted — out unless ruled in:</em></li>
+<li>write the chapter</li>
+<li><strong>Kit</strong> — <em>TL8 gear: money, cost of living, legality class, reading the weapon tables, firearms, armor, law-enforcement and spy gear, medical and comms gear (<span class="stub" title="not included in this dossier">25-b1-equipment</span>); investigatory gear and improvised weapons (<span class="stub" title="not included in this dossier">55-horror</span> §The Monster-Hunter's Toolbox). What ANSCOM issues a response squad is written nowhere in the vault. KB gaps: the modern cost-of-living example (B1 p.267) was dropped as colour, High-Tech is unextracted, <a class="tl" href="#glossary--psychotronics">psychotronics</a> live in Ultra-Tech (unextracted); "icky" psychotronics corrupt their operator (<a href="#corruption">Corruption</a>) — a player note only if such kit is ever issued:</em></li>
+<li>write the issue-kit list (house rules first)</li>
+<li>write the chapter</li>
+<li><strong>Standing &amp; advancement</strong> — <em>Rank, Status and cost of living, what ANSCOM rank buys (<span class="stub" title="not included in this dossier">02-character-creation</span> §Wealth, Status, Reputation, §Character Development; <span class="stub" title="not included in this dossier">12-social-engineering</span> §Social Position, §The Benefits of Rank); spending earned points, study and learning (<span class="stub" title="not included in this dossier">46-se-back-to-school</span> §Points-Based Learning, §Learning Powers); the law a covert squad works under (<span class="stub" title="not included in this dossier">41-b2-worldbuilding-gm</span> §Legality Class, §Law Enforcement, Arrest, Jail, and Bail); psi advancement bounded by the Talent lock and the monitoring thresholds (<span class="stub" title="not included in this dossier">berger-scale</span>). Award and downtime rules are GM decisions the chapter states as outcomes only:</em></li>
+<li>write the chapter</li>
+</ul>
+<h4 id="open-threads--kb-gaps-the-chapters-need-rules-extractor-work">KB gaps the chapters need (rules-extractor work)</h4>
+<p><em>Slices the original fantasy-first extraction pass dropped or never reached (<span class="stub" title="not included in this dossier">00-library</span> §Re-extraction queue) and that a chapter above cannot be complete without. Each is one <code>rules-extractor</code> run against the mounted library (in the session container it is at <code>/home/victor/RPG/GURPS/</code>, not under the agent's own home; every book below was confirmed present 2026-09-15):</em></p>
+<ul>
+<li>Critical Hit / Critical Miss / Critical Head Blow Tables (B2) — combat chapter</li>
+<li>cover and darkness modifiers; HP and DR of Objects and Cover (B2 p.222) — combat chapter</li>
+<li>Easy to Read (Psychic +100% / Psychic Only +0%) full text (PSC p.27) — psi-in-play and char-gen chapters</li>
+<li>"What Cost of Living Gets You: A Modern Example" (B1 p.267) — kit chapter</li>
+<li>the modern slice of Power-Ups 2/6/7 (firearms, vehicles, computers perks; non-fantasy wildcards) — traits chapter</li>
+<li>High-Tech (and Tactical Shooting, if the table wants the depth) — kit and combat chapters; whole books, unextracted</li>
+<li><em>GURPS Psis</em> — psychic templates and per-power packages; the roles &amp; templates chapter's primary source. Not in <span class="stub" title="not included in this dossier">00-library</span> at all — add it to the catalog in the same run</li>
+<li><em>Pyramid</em> 3/29 Psionics, 3/69 Psionics II, 3/97 Strange Powers — psi-in-play and traits chapters; scope after a TOC read</li>
+<li><em>Psi-Tech</em> — psychotronic gear (the catalog points these at Ultra-Tech; Psi-Tech is the dedicated book) — kit chapter, only if ANSCOM issues any</li>
+<li><em>Mysteries</em> — casework chapter (rules half); investigation structure, system-neutral</li>
+<li><em>Social Engineering: Pulling Rank</em> — standing &amp; advancement and ANSCOM chapters; what Rank in an organisation buys</li>
+<li><em>Loadouts: Monster Hunters</em> — kit chapter; ready TL8 investigator loadouts as the model for the issue-kit list</li>
+</ul>
 <h3 id="open-threads--lore-threads-undefined-develop-when-ready">Lore threads (undefined — develop when ready)</h3>
 <h4 id="open-threads--arc-seeds">Arc seeds</h4>
 <ul>
@@ -3751,7 +3852,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li><strong>TC 20-1 register ruling</strong> (added 2026-09-13) — at promotion review of the power handouts: rule the document register wholesale (detail, Headquarters, the per-discipline adjectives — telepathic, extractive, translocative… — and "the program" on paper — the <a href="#anscom">ANSCOM</a> avoid binds dialogue only), and the in-world ability-designation lexicon (GURPS ability names are out-of-world labels standing in per the favor-in-world policy; the ruled exceptions are the Projection family and <a class="tl" href="#glossary--thoughtform">Thoughtform</a> Contact). Already minted from this register: "discipline" and the category pair (<a href="#glossary--liminic-discipline">Liminic discipline</a>, <a href="#glossary--liminic-ability">Liminic ability</a>); <a href="#glossary--operator">operator</a> (2026-09-13, first application of the favor-in-world policy).</li>
 </ul>
 <h5 id="open-threads--two-register-jargon">Two-register jargon</h5>
-<p>Split the vocabulary into formal/technical (scientists, higher-ups) vs. field-ops lingo (agents): shortened or corrupted technical terms, or agent slang of its own — to accentuate the agents-vs-technicians gap. Existing examples: "the Undertow" (field) vs. "astral plane" (formal); spoken "a three over five" vs. written B3/C5; "<a class="tl" href="#glossary--crutch">crutch</a>." Decide the pattern, then coin future glossary terms in pairs (<a href="#glossary">GLOSSARY</a>).</p>
+<p>Split the vocabulary into formal/technical (scientists, higher-ups) vs. field-ops lingo (agents): shortened or corrupted technical terms, or agent slang of its own — to accentuate the agents-vs-technicians gap. Existing examples: "the Undertow" (field) vs. "astral plane" (formal); spoken "a three over five" vs. written B3/C5; "crutch." Decide the pattern, then coin future glossary terms in pairs (<a href="#glossary">GLOSSARY</a>).</p>
 <p>##### Pattern (ruled 2026-08-24)</p>
 <ul>
 <li><em>Age-keyed mix (erosion archaeology) adopted.</em></li>
@@ -3764,7 +3865,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li><em>Field lingo can relate to the formal register three ways — <strong>corruption</strong> (shortening/eroding the technical term: "a B6" → "a six"; the once-mooted "limmies" was struck in the pass — agents never handle the noun), <strong>replacement</strong> (native imagery with no formal parent, the way "the Undertow" displaced "astral plane"), or <strong>both, keyed to term age</strong> — older terms having had more time to erode. That erosion gradient becomes an archaeological layer: how corrupted a term is dates when the program minted it, and attentive players can read the program's history out of its slang.</em></li>
 <li><em>Terms needed when the pattern is decided: <strong>the psi-crazy</strong> — an agent/person broken by too much psionic power (<a href="#corruption">Corruption</a>) or by a weird experience (Undertow contact, trauma from a noise) — JDIT has a very hard time distinguishing the two etiologies, so the term(s) may lump them, or formal usage may split what field slang lumps. (Candidate flavors, undecided: Soviet-descriptive "decompensated"; US-occult "touched"; field shortenings like "gone over" / "burnt.")</em></li>
 <li><em>Adopted design note: when coining, the <strong>formal register splits</strong> the two etiologies (separate diagnostic codes — scientists need to believe they can tell), while the <strong>field register lumps</strong> them in one word — to the agent dragging a colleague out of a farmhouse, the difference has never mattered. The gap between registers thereby encodes the institutional lie that JDIT understands what it's monitoring (<a href="#corruption">Corruption</a>).</em></li>
-<li><em>Second axis — provenance: a term's flavor shows which tradition coined it. US-born research leaned mystical/occult vocabulary; Soviet research was technical, favoring dry descriptive labels. (Mirrors real history: Project Stargate's remote-viewing mysticism vs. Eastern-bloc "<a class="tl" href="#glossary--psychotronics">psychotronics</a>"/"biocommunication.") Since <a href="#jdit">JDIT</a> absorbed both archives in 1987 (<a href="#founding-of-the-jdit">Founding of the JDIT</a>), the working lexicon is a fossil bed: origin (US-occult / Soviet-descriptive / post-'87 JDIT bureaucratese) × age (erosion) locates every term in the program's history. When coining terms, pick the tradition first.</em></li>
+<li><em>Second axis — provenance: a term's flavor shows which tradition coined it. US-born research leaned mystical/occult vocabulary; Soviet research was technical, favoring dry descriptive labels. (Mirrors real history: Project Stargate's remote-viewing mysticism vs. Eastern-bloc "psychotronics"/"biocommunication.") Since <a href="#jdit">JDIT</a> absorbed both archives in 1987 (<a href="#founding-of-the-jdit">Founding of the JDIT</a>), the working lexicon is a fossil bed: origin (US-occult / Soviet-descriptive / post-'87 JDIT bureaucratese) × age (erosion) locates every term in the program's history. When coining terms, pick the tradition first.</em></li>
 </ul>
 <p>##### Terms still queued</p>
 <ul>
@@ -3778,7 +3879,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li>an in-world name for <strong>residue</strong></li>
 <li>the <strong>Baltic <a class="tl" href="#glossary--the-substance">substance</a></strong>'s names — a Soviet name and a US name, one becoming the official JDIT designation (most likely the Soviet term)</li>
 <li>the <strong>needle</strong>'s dead Soviet designation (the drug is <a href="#nii-19">NII-19</a>'s, first test 1977 — ruled 2026-08-28, <a href="#the-needle">The Needle</a>)</li>
-<li>a proper technical term for the <strong><a class="tl" href="#glossary--assay">assay</a></strong></li>
+<li>a proper technical term for the <strong>assay</strong></li>
 <li>official JDIT nomenclature for <strong>hot zones</strong> ("hot" serves all cases until then)</li>
 <li>alternative names for <strong>the Baltic Incident</strong> (flavor variants)</li>
 </ul>
@@ -3793,9 +3894,9 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <li><em>every pre-existing glossary term confirmed (coordinates + PT)</em></li>
 <li><em>the psi-crazy → ONE clinical state — <strong>liminic overexposure syndrome</strong>, field <strong>"deaf" / "surdo"</strong> (the splits/lumps design note does not apply here — the end state is single, it's just the Corruption mechanics)</em></li>
 <li><em>"the <a class="tl" href="#glossary--the-depths">Depths</a>" confirmed (<strong>"as Profundezas"</strong>), formal layer pair <strong>near field / far field</strong></em></li>
-<li><em>the elimination squad → compartment <strong><a class="tl" href="#glossary--deadwood">DEADWOOD</a></strong> (arboreal codeword series canonized with <a class="tl" href="#glossary--canopy">CANOPY</a>), field whisper <strong>"the Janitors" / "os Faxineiros"</strong></em></li>
-<li><em><a class="tl" href="#glossary--ler">LER</a> field slang (<strong>"the hearing test" / "a audiometria"</strong>; drift = <strong>"going deaf" / "ficando surdo"</strong>)</em></li>
-<li><em><a class="tl" href="#glossary--decommissioning">decommissioning</a> field slang (<strong>"getting dimmed" / "ser apagado"</strong>)</em></li>
+<li><em>the elimination squad → compartment <strong>DEADWOOD</strong> (arboreal codeword series canonized with <a class="tl" href="#glossary--canopy">CANOPY</a>), field whisper <strong>"the Janitors" / "os Faxineiros"</strong></em></li>
+<li><em>LER field slang (<strong>"the hearing test" / "a audiometria"</strong>; drift = <strong>"going deaf" / "ficando surdo"</strong>)</em></li>
+<li><em>decommissioning field slang (<strong>"getting dimmed" / "ser apagado"</strong>)</em></li>
 <li><em>terminal mutation cases → <strong><a class="tl" href="#glossary--liminic-neoplasia">liminic neoplasia</a></strong>, deliberately no field word</em></li>
 <li><em>noise ruled field-only with formal stack <strong>liminic event / anomalous event</strong></em></li>
 <li><em>crutch's formal parent <strong>induction routine</strong></em></li>
@@ -3815,21 +3916,21 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 <p><em>2026-08-25 (light-list triage):</em></p>
 <ul>
 <li><em><strong>"the hum" / "the babble"</strong> sanctioned (crowd broadcast, field; formal term still queued)</em></li>
-<li><em><strong>"<a class="tl" href="#glossary--going-loud">going loud</a>"</strong> canonized (informal — CANOPY-reveal risk)</em></li>
+<li><em><strong>"going loud"</strong> canonized (informal — CANOPY-reveal risk)</em></li>
 <li><em><strong>flying squad</strong> struck — <a href="#glossary--response-squad">response squad</a> replaced it 2026-09-09 (<a href="#anscom">ANSCOM</a>)</em></li>
 <li><em>notes-level: <strong>the Fall</strong> (stub note created), <strong><a class="tl" href="#glossary--seed-cult">seed cult</a></strong></em></li>
 <li><em>No canonization, by ruling: discreet agents; exotic mercies (speculative — contained to its own article and relatives); conservation/<a class="tl" href="#glossary--vessel">vessel</a> readiness (tentative); the open door, legibility horizon, the double bind (flowery language); misbehaver (plain description of late-stage overexposure syndrome); weak era (convenient shorthand for the pre-20th-century era)</em></li>
 </ul>
 <p><em>2026-08-25 (follow-up):</em></p>
 <ul>
-<li><em><strong>the <a class="tl" href="#glossary--the-flowering">Flowering</a></strong> canonized (notes-level) as the Gardener's process of becoming/expanding, replacing "the waking" (struck, swept — canons 001, 016)</em></li>
+<li><em><strong>the Flowering</strong> canonized (notes-level) as the Gardener's process of becoming/expanding, replacing "the waking" (struck, swept — canons 001, 016)</em></li>
 <li><em><strong>hot/cold register</strong> NOT canonized — it rests on the not-yet-settled concept of the Gardener growing cunning and able to plan and deceive as it grows (lives with the weighted-disadvantage-table chore)</em></li>
 </ul>
 <h4 id="open-threads--cold-war-history">Cold War history</h4>
 <ul>
 <li><strong>Subject 357</strong> (<a href="#subject-357">Subject 357</a>):</li>
 <li>identity?</li>
-<li><a class="tl" href="#glossary--lineage">lineage</a>?</li>
+<li>lineage?</li>
 <li>surviving family?</li>
 <li>case doctors?</li>
 <li><strong>The hidden reservists</strong> (added 2026-08-25) — <em><a href="#nii-19">NII-19</a>'s reserve was never maintained after 1991; JDIT's sweeps found and killed some, and the rest disappeared (<a href="#dissolution-of-the-ussr">Dissolution of the USSR</a>). The survivors are in their eighties and unpursued unless they surface:</em></li>
@@ -3894,7 +3995,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 <h5 id="open-threads--the-genomics-era-masquerade-added-2026-08-31">The genomics-era masquerade (added 2026-08-31)</h5>
 <p>Tissue restriction makes blood, saliva, and consumer sequencing structurally blind to the plasmid (<a href="#the-lam">The LAM</a>), so the secret survives biobanks by construction.</p>
-<p><em>Ruled 2026-08-31: the body side — ANSCOM's collection doctrine doubles as biosecurity, the death-watch triages known receivers' and watched latents' deaths, and both exit instruments sanitize (needle at once, <a class="tl" href="#glossary--prune">PRUNE</a> slowly) — recorded in <a href="#anscom">ANSCOM</a> and canons 014/023/033.</em></p>
+<p><em>Ruled 2026-08-31: the body side — ANSCOM's collection doctrine doubles as biosecurity, the death-watch triages known receivers' and watched latents' deaths, and both exit instruments sanitize (needle at once, PRUNE slowly) — recorded in <a href="#anscom">ANSCOM</a> and canons 014/023/033.</em></p>
 <ul>
 <li>what is JDIT's posture toward brain banks, neuropathology labs, and research autopsies (the one tissue that <em>can</em> expose it)?</li>
 <li>has any anomalous read ever surfaced and been dismissed as contamination?</li>
@@ -3925,7 +4026,7 @@ Dotted-underline terms reference notes not included in this dossier.</p>
 </ul>
 <h4 id="open-threads--jdit-anscom">JDIT &amp; ANSCOM</h4>
 <ul>
-<li><strong>ANSCOM squad typing &amp; strength</strong> (added 2026-08-25; two-tier structure and the sizing slate ruled 2026-09-09; tiers designated 2026-09-09: <strong><a class="tl" href="#glossary--sector-squad">sector squads</a></strong> / <strong><a class="tl" href="#glossary--response-squad">response squads</a></strong>, and on paper a squad is hub + tier + number — <strong>Vienna Response Squad One</strong> — while on the radio it answers only to its <strong>fixed nickname callsign</strong> — <a href="#anscom">ANSCOM</a>, <a href="#glossary--squad-callsigns">Squad callsigns</a>):</li>
+<li><strong>ANSCOM squad typing &amp; strength</strong> (added 2026-08-25; two-tier structure and the sizing slate ruled 2026-09-09; tiers designated 2026-09-09: <strong>sector squads</strong> / <strong>response squads</strong>, and on paper a squad is hub + tier + number — <strong>Vienna Response Squad One</strong> — while on the radio it answers only to its <strong>fixed nickname callsign</strong> — <a href="#anscom">ANSCOM</a>, <a href="#glossary--squad-callsigns">Squad callsigns</a>):</li>
 <li><strong>exact GURPS point specs for each psi tier</strong> (minor / mid-strength / strong) — GM-queued 2026-09-09</li>
 <li>sector-squad size (4–6 is ruled for response squads only)</li>
 <li>regional distribution of the 10 response squads and 40 stations (Europe's share unruled)</li>
